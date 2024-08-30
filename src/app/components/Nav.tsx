@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
+import Link from "next/link";
+import React, { useState } from "react";
 
 const Nav = () => {
+  const [toggle, setToggle] = useState(false);
   const isLogedIn = false;
   return (
     <nav className="flex justify-between items-center py-2 px-4">
@@ -30,9 +33,41 @@ const Nav = () => {
         )}
       </div>
       <div className="block md:hidden">
-        <button>toggle</button>
+        <button onClick={() => setToggle((pre) => !pre)}>toggle</button>
       </div>
       {/* mobile menu */}
+      {toggle && (
+        <section className="absolute right-0 top-12 rounded shadow-lg p-4 w-[90vw] flex flex-col gap-2">
+          <Link
+            href={"/"}
+            className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
+            onClick={() => setToggle((pre) => !pre)}
+          >
+            Home
+          </Link>
+          <Link
+            href={"/"}
+            className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
+            onClick={() => setToggle((pre) => !pre)}
+          >
+            Home
+          </Link>
+          <Link
+            href={"/"}
+            className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
+            onClick={() => setToggle((pre) => !pre)}
+          >
+            Home
+          </Link>
+          <Link
+            href={"/"}
+            className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
+            onClick={() => setToggle((pre) => !pre)}
+          >
+            Home
+          </Link>
+        </section>
+      )}
     </nav>
   );
 };
