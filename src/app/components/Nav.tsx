@@ -33,7 +33,26 @@ const Nav = () => {
         )}
       </div>
       <div className="block md:hidden">
-        <button onClick={() => setToggle((pre) => !pre)}>toggle</button>
+        <button
+          onClick={() => setToggle((pre) => !pre)}
+          className="size-8 flex flex-col gap-0.5 justify-center items-center bg-gray-300 rounded-full"
+        >
+          <div
+            className={`w-5 h-1 bg-gray-900 rounded transition-transform ease-out duration-200 origin-left ${
+              toggle ? "rotate-[42deg] " : ""
+            }`}
+          ></div>
+          <div
+            className={`w-5 h-1 bg-gray-900 rounded transition-transform ease-out duration-200 origin-right ${
+              toggle ? "opacity-0" : ""
+            }`}
+          ></div>
+          <div
+            className={`w-5 h-1 bg-gray-900 rounded transition-transform ease-out duration-200 origin-left ${
+              toggle ? "-rotate-[42deg] " : ""
+            }`}
+          ></div>
+        </button>
       </div>
       {/* mobile menu */}
       {toggle && (
@@ -64,7 +83,7 @@ const Nav = () => {
             className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
             onClick={() => setToggle((pre) => !pre)}
           >
-            Home
+            Logout
           </Link>
         </section>
       )}
