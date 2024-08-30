@@ -35,7 +35,7 @@ const Nav = () => {
       <div className="block md:hidden">
         <button
           onClick={() => setToggle((pre) => !pre)}
-          className="size-8 flex flex-col gap-0.5 justify-center items-center bg-gray-300 rounded-full"
+          className="size-8 flex flex-col gap-0.5 justify-center items-center rounded-full"
         >
           <div
             className={`w-5 h-1 bg-gray-900 rounded transition-transform ease-out duration-200 origin-left ${
