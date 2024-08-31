@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const Nav = () => {
+  // const { data: session } = useSession();
   const [toggle, setToggle] = useState(false);
   const [providers, setProviders] = useState(null);
   const isLogedIn = false;
