@@ -1,10 +1,18 @@
 "use client";
+import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Nav = () => {
   const [toggle, setToggle] = useState(false);
+  const [providers, setProviders] = useState(null);
   const isLogedIn = false;
+
+  useEffect(() => {
+    const setProviders = async () => {
+      const response = await getProviders();
+    };
+  }, []);
   return (
     <nav className="flex justify-between items-center py-2 px-4">
       <div>
