@@ -1,3 +1,5 @@
+import User from "@/models/users";
+import { connectToDb } from "@/utils/database";
 import NextAuth from "next-auth/next";
 
 import GoogleProvider from "next-auth/providers/google";
@@ -10,8 +12,23 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    // async signIn({ account, profile, user, credentials }) {
-    // },
+    async signIn({ account, profile, user, credentials }) {
+      try {
+        await connectToDb();
+
+        const userExists = await User.findOne({
+          email: profile?.email,
+        });
+
+        if (!userExists) {
+          await User.create({
+            email: profile?.email,
+            username: profile?.name?.replace(" ", "").toLocaleUpperCase(),
+            image: profile?.image,
+          });
+        }
+      } catch (error) {}
+    },
   },
 });
 
