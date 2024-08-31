@@ -7,12 +7,12 @@ const Hero = () => {
         <h1 className="text-3xl sm:text-4xl  md:text-5xl lg:text-6xl font-serif font-bold ">
           Discover & Share
         </h1>
-        <h2 className="text-3xl sm:text-4xl  md:text-5xl lg:text-6xl font-serif font-bold text-orange-500">
+        <h2 className="text-3xl sm:text-4xl  md:text-5xl lg:text-6xl font-serif font-bold bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent">
           Ai Powered Prompts
         </h2>
         <p className="md:text-md text-gray-400 font-medium mt-2">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta
-          dolores officia dolore dolorum beatae maiores cum necessitatibus,
+          Promptopia is an open-source AI prompting tool for modern world to
+          discover, create and share creative prompts
         </p>
         <div className="mt-4">
           <input
