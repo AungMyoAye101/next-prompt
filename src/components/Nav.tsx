@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const Nav = () => {
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
   const [toggle, setToggle] = useState(false);
   const [providers, setProviders] = useState(null);
   const isLogedIn = false;
@@ -21,7 +21,7 @@ const Nav = () => {
       </div>
 
       <div className="hidden md:flex gap-2">
-        {isLogedIn ? (
+        {session?.user ? (
           <>
             <button className="px-4 py-2 rounded-lg hover:bg-orange-500 text-slate-200 bg-gray-700 shadow-md text-sm font-semibold">
               Create New
@@ -32,10 +32,10 @@ const Nav = () => {
           </>
         ) : (
           <>
-            <button className="px-4 py-2 rounded-lg hover:bg-orange-500 text-slate-200 bg-gray-700 shadow-md text-sm font-semibold">
-              Login
-            </button>
-            <button className="px-4 py-2 rounded-lg hover:bg-gray-800 border border-gray-300 shadow-md text-sm hover:text-gray-100  font-semibold">
+            <button
+              className="px-4 py-2 rounded-lg hover:bg-gray-800 border border-gray-300 shadow-md text-sm hover:text-gray-100  font-semibold"
+              onClick={() => signIn("google")}
+            >
               Sign In
             </button>
           </>
