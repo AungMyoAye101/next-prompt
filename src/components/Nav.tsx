@@ -53,7 +53,7 @@ const Nav = () => {
         ) : (
           <>
             <button
-              className="px-4 py-2 rounded-lg hover:bg-gray-800 border border-gray-300 shadow-md text-sm hover:text-gray-100  font-semibold"
+              className="px-4 py-2 rounded-lg bg-gray-800 border border-gray-300 shadow-md text-sm text-gray-100  font-semibold hover:bg-orange-400"
               onClick={() => signIn("google")}
             >
               Sign In
