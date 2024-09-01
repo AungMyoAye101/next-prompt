@@ -18,7 +18,7 @@ const Hero = () => {
           <input
             type="text"
             placeholder="search a tag or username"
-            className="w-full py-2 px-4 rounded shadow-lg border border-gray-200 focus:outline-none"
+            className="w-full py-2 px-4 rounded shadow-lg border border-gray-400 focus:outline-none"
           />
         </div>
       </div>
