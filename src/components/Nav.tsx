@@ -7,8 +7,8 @@ import React, { useEffect, useState } from "react";
 const Nav = () => {
   const { data: session } = useSession();
   const [toggle, setToggle] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
   const [providers, setProviders] = useState(null);
-  const isLogedIn = false;
 
   useEffect(() => {
     const setProviders = async () => {
@@ -21,25 +21,34 @@ const Nav = () => {
         <h1 className="text-xl font-bold font-serif"> Promptopia</h1>
       </div>
 
-      <div className="hidden md:flex gap-2">
+      <div className="hidden md:flex gap-2 items-center">
         {session?.user ? (
           <>
-            <button className="px-4 py-1 rounded-lg hover:bg-orange-500 text-slate-200 bg-gray-700 shadow-md text-sm font-semibold">
+            <button className="px-4 py-2 rounded-lg hover:bg-orange-500 text-slate-200 bg-gray-700 shadow-md text-sm font-semibold">
               Create New
             </button>
-            <button
-              className="px-3 py-1 rounded-lg hover:bg-gray-800 border border-gray-300 shadow-md text-sm hover:text-gray-100  font-semibold"
-              onClick={() => signOut()}
-            >
-              Sign Out
-            </button>
-            <Image
-              src={`${session.user.image}`}
-              width={40}
-              height={40}
-              alt="user profile"
-              className="rounded-full"
-            />
+
+            <div>
+              <button onClick={() => setDropDown((pre) => !pre)}>
+                <Image
+                  src={`${session.user.image}`}
+                  width={40}
+                  height={40}
+                  alt="user profile"
+                  className="rounded-full cursor-pointer"
+                />
+              </button>
+              {dropDown && (
+                <div className="absolute top-16 right-14 p-4 border border-gray-300 rounded-md ">
+                  <button
+                    className="px-3 py-1 rounded-lg text-red-400 hover:bg-gray-800 border border-gray-300 shadow-md text-sm hover:text-gray-100  font-semibold"
+                    onClick={() => signOut()}
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              )}
+            </div>
           </>
         ) : (
           <>
