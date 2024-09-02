@@ -22,18 +22,18 @@ const handler = NextAuth({
       try {
         await connectToDb();
 
-        // const userExists = await User.findOne({
-        //   email: profile?.email,
-        // });
+        const userExists = await User.findOne({
+          email: profile?.email,
+        });
 
-        // if (!userExists) {
-        //   await User.create({
-        //     email: profile?.email,
-        //     username: profile?.name?.replace(" ", "").toLocaleUpperCase(),
-        //     image: profile?.image,
-        //   });
-        //   return true;
-        // }
+        if (!userExists) {
+          await User.create({
+            email: profile?.email,
+            username: profile?.name?.replace(" ", "").toLocaleUpperCase(),
+            image: profile?.image,
+          });
+          return true;
+        }
       } catch (error) {
         console.log(error);
         return false;
