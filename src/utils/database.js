@@ -3,29 +3,29 @@ import mongoose, { ConnectOptions } from "mongoose";
 let isConnect = false;
 
 export const connectToDb = async () => {
-  // mongoose.set("strictQuery", true);
+  mongoose.set("strictQuery", true);
 
-  // if (isConnect) {
-  //   console.log("mongo db is connected");
-  //   return;
-  // } else {
-  //   try {
-  //     await mongoose.connect(process.env.MONGODB_URI!, {
-  //       dbName: "prompt",
-  //       useUnifiedTopology: true,
-  //     } as ConnectOptions);
+  if (isConnect) {
+    console.log("mongo db is connected");
+    return;
+  } else {
+    try {
+      await mongoose.connect(process.env.MONGODB_URI, {
+        dbName: "prompt",
+        useUnifiedTopology: true,
+      });
 
-  //     isConnect = true;
-  //     console.log("mongo db is connected");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log("Connected to MONGODB");
-  } catch (error) {
-    console.log("Erro connecting to database: ", error);
+      isConnect = true;
+      console.log("mongo db is connected");
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+  // try {
+  //   await mongoose.connect(process.env.MONGODB_URI);
+  //   console.log("Connected to MONGODB");
+  // } catch (error) {
+  //   console.log("Erro connecting to database: ", error);
+  // }
 };

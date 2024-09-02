@@ -11,13 +11,13 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    // async session({ session }) {
-    //   const sessionUser = await User.findOne({
-    //     email: session.user.email,
-    //   });
-    //   session.user.id = sessionUser._id.toString();
-    //   return session;
-    // },
+    async session({ session }) {
+      const sessionUser = await User.findOne({
+        email: session.user.email,
+      });
+      session.user.id = sessionUser._id.toString();
+      return session;
+    },
     async signIn({ account, profile, user }) {
       try {
         await connectToDb();
@@ -30,7 +30,7 @@ const handler = NextAuth({
           await User.create({
             email: profile?.email,
             username: profile?.name?.replace(" ", "").toLocaleUpperCase(),
-            image: profile?.image,
+            image: profile.image,
           });
           return true;
         }
