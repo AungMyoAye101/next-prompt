@@ -24,9 +24,12 @@ const Nav = () => {
       <div className="hidden md:flex gap-2 items-center">
         {session?.user ? (
           <>
-            <button className="px-4 py-2 rounded-lg hover:bg-orange-500 text-slate-200 bg-gray-700 shadow-md text-sm font-semibold">
+            <Link
+              href={"/create"}
+              className="px-4 py-2 rounded-lg hover:bg-orange-500 text-slate-200 bg-gray-700 shadow-md text-sm font-semibold"
+            >
               Create New
-            </button>
+            </Link>
 
             <div>
               <button onClick={() => setDropDown((pre) => !pre)}>
