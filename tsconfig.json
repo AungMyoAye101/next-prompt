@@ -29,7 +29,8 @@
     "src/app/api/auth/[...nextAuth]/route.js",
     "src/components/Provider.js",
     "src/app/api/user/route.js",
-    "src/utils/database.js"
+    "src/utils/database.js",
+    "src/app/create/page.jsx"
   ],
   "exclude": ["node_modules"]
 }
