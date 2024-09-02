@@ -10,7 +10,7 @@ const CreatePrompt = () => {
   const { data: session } = useSession();
   console.log(session?.user?.id);
   return (
-    <div>
+    <div className="p-4">
       <PromptCreateForm />
     </div>
   );

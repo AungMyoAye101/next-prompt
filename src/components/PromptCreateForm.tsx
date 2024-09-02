@@ -11,7 +11,7 @@ const PromptCreateForm = () => {
       </div>
       <form action="/" className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
-          <label htmlFor="prompt" className="font-semibold font-sans">
+          <label htmlFor="prompt" className="font-semibold text-gray-500">
             Text your ai powered prompt
           </label>
           <textarea
@@ -22,7 +22,7 @@ const PromptCreateForm = () => {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="tag" className="font-semibold font-sans">
+          <label htmlFor="tag" className="font-semibold text-gray-500">
             Add tag for your prompt(#webdev,#prompt,#help,etc..)
           </label>
           <input
