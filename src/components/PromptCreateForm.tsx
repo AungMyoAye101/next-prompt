@@ -9,7 +9,7 @@ const PromptCreateForm = () => {
           Create your Ai power prompt
         </h1>
       </div>
-      <form action="/" className="flex flex-col gap-4">
+      <form action={""} className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label htmlFor="prompt" className="font-semibold text-gray-500">
             Text your ai powered prompt
