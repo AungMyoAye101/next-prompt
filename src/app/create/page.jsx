@@ -1,7 +1,8 @@
+"use client";
+
 import PromptCreateForm from "@/components/PromptCreateForm";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
 
 const CreatePrompt = () => {
   const router = useRouter();
