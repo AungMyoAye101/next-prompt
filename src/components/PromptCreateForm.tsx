@@ -1,8 +1,9 @@
-import { createPrompt } from "@/actions/createPrompt";
 import Link from "next/link";
 import React from "react";
-
-const PromptCreateForm = () => {
+interface CreatePrompt {
+  createPrompt: () => void;
+}
+const PromptCreateForm = ({ createPrompt }: CreatePrompt) => {
   return (
     <section className="flex flex-col gap-4 p-6 md:px-8 w-full max-w-3xl mt-4  mx-auto border border-gray-400 rounded-md shadow-md ">
       <div>
