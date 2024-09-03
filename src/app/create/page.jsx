@@ -11,7 +11,21 @@ const CreatePrompt = () => {
   const createPrompt = async (formData) => {
     const prompt = formData.get("prompt");
     const tag = formData.get("tag");
-    console.log(prompt, tag, session.user.id);
+    try {
+      const res = fetch("/api/prompt/new", {
+        method: "POST",
+        body: JSON.stringify({
+          id: session.user.id,
+          prompt,
+          tag,
+        }),
+      });
+      if (res.ok) {
+        router.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
     redirect("/");
     revalidatePath("/create");
   };
