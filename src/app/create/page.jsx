@@ -15,7 +15,7 @@ const CreatePrompt = () => {
       const res = fetch("/api/prompt/new", {
         method: "POST",
         body: JSON.stringify({
-          id: session.user.id,
+          userId: session.user.id,
           prompt,
           tag,
         }),

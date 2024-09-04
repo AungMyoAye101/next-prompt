@@ -15,7 +15,7 @@ const Feed = () => {
   useEffect(() => {
     fetchPost();
   }, []);
-
+  console.log(posts);
   return (
     <section className="p-4 md:p-6">
       <h1 className="text-xl font-semibold font-serif">Populer Prompts </h1>
@@ -25,7 +25,7 @@ const Feed = () => {
             <PromptCard
               img={""}
               name={""}
-              email="ama@gmail.com"
+              email={""}
               prompt={post.prompt}
               tag={post.tag}
             />
