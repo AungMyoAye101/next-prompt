@@ -1,21 +1,15 @@
 import Image from "next/image";
 import React, { FC } from "react";
 
-interface PromptCardProps {
+export interface PromptCardProps {
   img: string;
   name: string;
   email: string;
   prompt: string;
-  tags: string;
+  tag: string;
 }
 
-const PromptCard: FC<PromptCardProps> = ({
-  img,
-  name,
-  email,
-  prompt,
-  tags,
-}) => {
+const PromptCard: FC<PromptCardProps> = ({ img, name, email, prompt, tag }) => {
   return (
     <section className="flex flex-col gap-2 p-4 rounded-md border border-gray-500 shadow-lg ">
       <div className="flex gap-2 items-center ">
@@ -33,9 +27,7 @@ const PromptCard: FC<PromptCardProps> = ({
       </div>
       <div>
         <p className="text-gray-700 font-serif ">{prompt}</p>
-        <p className=" font-serif text-sm font-semibold text-gray-800">
-          {tags}
-        </p>
+        <p className=" font-serif text-sm font-semibold text-gray-800">{tag}</p>
       </div>
     </section>
   );

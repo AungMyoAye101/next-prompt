@@ -1,67 +1,36 @@
-import React from "react";
-import PromptCard from "./PromptCard";
+"use client";
 
+import React, { useEffect, useState } from "react";
+import PromptCard from "./PromptCard";
+import { PromptCardProps } from "./PromptCard";
 const Feed = () => {
+  const [posts, setPosts] = useState<PromptCardProps[]>([]);
+
+  const fetchPost = async () => {
+    const res = await fetch("/api/prompt");
+    const data = await res.json();
+
+    setPosts(data);
+  };
+  useEffect(() => {
+    fetchPost();
+  }, []);
+
   return (
-    <section>
+    <section className="p-4 md:p-6">
       <h1 className="text-xl font-semibold font-serif">Populer Prompts </h1>
-      <section className="grid grid-cols-4 gap-4 py-6">
-        <PromptCard
-          img=""
-          name="Zuely "
-          email="ama@gmail.com"
-          prompt="lorem i hff fbdf iii iii fdf  fdf"
-          tags="#webdev"
-        />
-        <PromptCard
-          img=""
-          name="Zuely "
-          email="ama@gmail.com"
-          prompt="lorem i hff fbdf iii iii fdf  fdf"
-          tags="#webdev"
-        />
-        <PromptCard
-          img=""
-          name="Zuely "
-          email="ama@gmail.com"
-          prompt="lorem i hff fbdf iii iii fdf  fdf"
-          tags="#webdev"
-        />
-        <PromptCard
-          img=""
-          name="Zuely "
-          email="ama@gmail.com"
-          prompt="lorem i hff fbdf iii iii fdf  fdf"
-          tags="#webdev"
-        />
-        <PromptCard
-          img=""
-          name="Zuely "
-          email="ama@gmail.com"
-          prompt="lorem i hff fbdf iii iii fdf  fdf"
-          tags="#webdev"
-        />
-        <PromptCard
-          img=""
-          name="Zuely "
-          email="ama@gmail.com"
-          prompt="lorem i hff fbdf iii iii fdf  fdf"
-          tags="#webdev"
-        />
-        <PromptCard
-          img=""
-          name="Zuely "
-          email="ama@gmail.com"
-          prompt="lorem i hff fbdf iii iii fdf  fdf"
-          tags="#webdev"
-        />
-        <PromptCard
-          img=""
-          name="Zuely "
-          email="ama@gmail.com"
-          prompt="lorem i hff fbdf iii iii fdf  fdf"
-          tags="#webdev"
-        />
+      <section className="grid sm:grid-cols-2 md:grid-col-3 lg:grid-cols-4 gap-4 py-6">
+        {posts.map((post, i) => (
+          <div key={i}>
+            <PromptCard
+              img={""}
+              name={""}
+              email="ama@gmail.com"
+              prompt={post.prompt}
+              tag={post.tag}
+            />
+          </div>
+        ))}
       </section>
     </section>
   );
