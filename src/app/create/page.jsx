@@ -8,6 +8,7 @@ import { redirect, useRouter } from "next/navigation";
 const CreatePrompt = () => {
   const router = useRouter();
   const { data: session } = useSession();
+
   const createPrompt = async (formData) => {
     const prompt = formData.get("prompt");
     const tag = formData.get("tag");

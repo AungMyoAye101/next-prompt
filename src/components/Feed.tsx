@@ -2,9 +2,19 @@
 
 import React, { useEffect, useState } from "react";
 import PromptCard from "./PromptCard";
-import { PromptCardProps } from "./PromptCard";
+
+interface AuthorProp {
+  image: string;
+  username: string;
+  email: string;
+}
+export interface PromptProps {
+  prompt: string;
+  tag: string;
+  author: AuthorProp;
+}
 const Feed = () => {
-  const [posts, setPosts] = useState<PromptCardProps[]>([]);
+  const [posts, setPosts] = useState<PromptProps[]>([]);
 
   const fetchPost = async () => {
     const res = await fetch("/api/prompt");
@@ -23,9 +33,9 @@ const Feed = () => {
         {posts.map((post, i) => (
           <div key={i}>
             <PromptCard
-              img={""}
-              name={""}
-              email={""}
+              img={post.author.image}
+              name={post.author.username}
+              email={post.author.email}
               prompt={post.prompt}
               tag={post.tag}
             />
