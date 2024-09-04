@@ -33,7 +33,9 @@ const PromptCard: FC<PromptCardProps> = ({
       </div>
       <div>
         <p className="text-gray-700 font-serif ">{prompt}</p>
-        <p className=" font-serif text-sm font-semibold">{tags}</p>
+        <p className=" font-serif text-sm font-semibold text-gray-800">
+          {tags}
+        </p>
       </div>
     </section>
   );
