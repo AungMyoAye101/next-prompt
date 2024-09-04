@@ -17,41 +17,38 @@ const Nav = () => {
   }, []);
   return (
     <nav className="flex justify-between items-center py-2 px-4">
-      <div>
-        <h1 className="text-xl font-bold font-serif"> Promptopia</h1>
-      </div>
+      <Link href={"/"}>
+        <h1 className="text-xl font-bold font-serif  bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-500 bg-clip-text text-transparent">
+          {" "}
+          Promptopia
+        </h1>
+      </Link>
 
       <div className="hidden md:flex gap-2 items-center">
         {session?.user ? (
           <>
             <Link
               href={"/create"}
-              className="px-4 py-2 rounded-lg hover:bg-orange-500 text-slate-200 bg-gray-700 shadow-md text-sm font-semibold"
+              className="px-3 py-1 rounded-md hover:bg-orange-500 text-slate-200 bg-gray-700 shadow-md text-sm font-semibold"
             >
               Create New
             </Link>
+            <button
+              className="px-3 py-1 rounded-md bg-red-500 hover:bg-gray-800  shadow-md text-sm hover:text-gray-100  font-semibold"
+              onClick={() => signOut()}
+            >
+              Sign Out
+            </button>
 
-            <div>
-              <button onClick={() => setDropDown((pre) => !pre)}>
-                <Image
-                  src={`${session.user.image}`}
-                  width={40}
-                  height={40}
-                  alt="user profile"
-                  className="rounded-full cursor-pointer"
-                />
-              </button>
-              {dropDown && (
-                <div className="absolute top-16 right-14 p-4 border border-gray-300 rounded-md ">
-                  <button
-                    className="px-3 py-1 rounded-lg text-red-400 hover:bg-gray-800 border border-gray-300 shadow-md text-sm hover:text-gray-100  font-semibold"
-                    onClick={() => signOut()}
-                  >
-                    Sign Out
-                  </button>
-                </div>
-              )}
-            </div>
+            <Link href={"/profile"}>
+              <Image
+                src={`${session.user.image}`}
+                width={40}
+                height={40}
+                alt="user profile"
+                className="rounded-full cursor-pointer"
+              />
+            </Link>
           </>
         ) : (
           <>
@@ -97,11 +94,11 @@ const Nav = () => {
             Home
           </Link>
           <Link
-            href={"/"}
+            href={"/create"}
             className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
             onClick={() => setToggle((pre) => !pre)}
           >
-            Home
+            Create new
           </Link>
           <Link
             href={"/"}
