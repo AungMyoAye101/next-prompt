@@ -18,25 +18,51 @@ const handler = NextAuth({
       session.user.id = sessionUser._id.toString();
       return session;
     },
+    // async signIn({ account, profile, user }) {
+    //   try {
+    //     await connectToDb();
+
+    //     const userExists = await User.findOne({
+    //       email: profile?.email,
+    //     });
+
+    //     if (!userExists) {
+    //       await User.create({
+    //         email: profile?.email,
+    //         username: profile?.name?.replace(" ", "").toLocaleUpperCase(),
+    //         image: profile?.picture,
+    //       });
+
+    //       return true;
+    //     }
+    //   } catch (error) {
+    //     console.log("error occure in log in");
+    //     return false;
+    //   }
+    // },
     async signIn({ account, profile, user }) {
       try {
         await connectToDb();
+        console.log("Connected to DB");
 
         const userExists = await User.findOne({
           email: profile?.email,
         });
+        console.log("User exists:", !!userExists);
 
         if (!userExists) {
-          await User.create({
+          const newUser = await User.create({
             email: profile?.email,
             username: profile?.name?.replace(" ", "").toLocaleUpperCase(),
             image: profile?.picture,
           });
+          console.log("New user created:", newUser);
 
           return true;
         }
+        return true;
       } catch (error) {
-        console.log(error);
+        console.error("Error occurred in signIn callback:", error);
         return false;
       }
     },

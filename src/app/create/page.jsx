@@ -26,8 +26,8 @@ const CreatePrompt = () => {
     } catch (error) {
       console.log(error);
     }
-    // redirect("/");
-    // revalidatePath("/create");
+    redirect("/create");
+    revalidatePath("/create");
   };
 
   return (
