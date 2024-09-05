@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { FC } from "react";
-import { PromptCardProps } from "./PromptCard";
+import PromptCard, { PromptCardProps } from "./PromptCard";
 
 interface ProfileProp {
   img: string;
@@ -28,9 +28,13 @@ const Profile: FC<ProfileProp> = ({ img, name, email, posts }) => {
       </div>
       <div>
         {posts.map((post, i) => (
-          <div key={i}>
-            <h1>{post.prompt}</h1>
-          </div>
+          <PromptCard
+            name={post.name}
+            email={post.email}
+            img={post.img}
+            prompt={post.prompt}
+            tag={post.tag}
+          />
         ))}
       </div>
     </section>
