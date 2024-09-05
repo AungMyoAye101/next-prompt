@@ -34,7 +34,7 @@ const Nav = () => {
               Create New
             </Link>
             <button
-              className="px-3 py-1 rounded-md bg-red-500 hover:bg-gray-800  shadow-md text-sm hover:text-gray-100  font-semibold"
+              className="px-3 py-1 rounded-md bg-red-500 hover:bg-gray-800  shadow-md text-sm text-gray-100  font-semibold"
               onClick={() => signOut()}
             >
               Sign Out
@@ -85,13 +85,20 @@ const Nav = () => {
       </div>
       {/* mobile menu */}
       {toggle && (
-        <section className="absolute right-0 top-12 rounded shadow-lg p-4 w-[90vw] flex flex-col gap-2">
+        <section className="absolute right-0 top-12 rounded shadow-lg p-4 w-[90vw] flex flex-col gap-2 z-20 bg-slate-100">
           <Link
             href={"/"}
             className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
             onClick={() => setToggle((pre) => !pre)}
           >
             Home
+          </Link>
+          <Link
+            href={"/profile"}
+            className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
+            onClick={() => setToggle((pre) => !pre)}
+          >
+            Profile
           </Link>
           <Link
             href={"/create"}
@@ -100,13 +107,7 @@ const Nav = () => {
           >
             Create new
           </Link>
-          <Link
-            href={"/"}
-            className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
-            onClick={() => setToggle((pre) => !pre)}
-          >
-            Home
-          </Link>
+
           <Link
             href={"/"}
             className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
