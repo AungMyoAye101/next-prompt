@@ -2,7 +2,7 @@ import Prompt from "@/models/prompt";
 
 import { connectToDb } from "@/utils/database";
 
-export const GET = async (req) => {
+export const GET = async (request) => {
   try {
     await connectToDb();
     const prompts = await Prompt.find({}).populate("author");
