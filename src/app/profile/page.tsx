@@ -17,7 +17,7 @@ const ProfilePage = () => {
       if (!session?.user) {
         return;
       }
-      const res = await fetch(`/api/user/${session?.user.id}/post`);
+      const res = await fetch(`/api/user/${session?.user.id}`);
       const data = await res.json();
       setPosts(data);
     };
