@@ -9,7 +9,6 @@ export async function POST(request) {
     await User.create({ name, email, image });
     return NextResponse.json({ message: "User Registered" }, { status: 201 });
   } catch (error) {
-    console.log(error);
     return new Response("Failed to push a user", { status: 500 });
   }
 }
