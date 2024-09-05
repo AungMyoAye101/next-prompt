@@ -31,34 +31,8 @@ const ProfilePage = () => {
         img={session?.user?.image!}
         name={session?.user?.name!}
         email={session?.user?.email!}
+        posts={posts}
       />
-      <section className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-4xl mx-auto gap-4 p-4">
-        {posts.map((post) => (
-          <div className="flex flex-col gap-2 ">
-            <PromptCard
-              img={session?.user?.image!}
-              name={session?.user?.name!}
-              email={session?.user?.email!}
-              prompt={""}
-              tag={""}
-            />
-            <div className="flex justify-end gap-2">
-              <Link
-                href={"/"}
-                className="px-3 py-1 text-sm border bg-blue-400 shadow-md rounded-md text-slate-100"
-              >
-                Edit
-              </Link>
-              <Link
-                href={"/"}
-                className="px-3 py-1 text-sm border bg-red-400 shadow-md rounded-md text-slate-100"
-              >
-                Delete
-              </Link>
-            </div>
-          </div>
-        ))}
-      </section>
     </div>
   );
 };

@@ -1,13 +1,15 @@
 import Image from "next/image";
 import React, { FC } from "react";
+import { PromptCardProps } from "./PromptCard";
 
 interface ProfileProp {
   img: string;
   name: string;
   email: string;
+  posts: PromptCardProps[];
 }
 
-const Profile: FC<ProfileProp> = ({ img, name, email }) => {
+const Profile: FC<ProfileProp> = ({ img, name, email, posts }) => {
   return (
     <section className="flex flex-col justify-center items-center gap-4 mt-4">
       <div className="relative size-40">
