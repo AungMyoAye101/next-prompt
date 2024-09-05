@@ -30,7 +30,8 @@
     "src/components/Provider.js",
     "src/app/api/user/route.js",
     "src/utils/database.js",
-    "src/app/create/page.tsx"
+    "src/app/create/page.tsx",
+    "src/app/api/user/[userId]/post/route.js"
   ],
   "exclude": ["node_modules"]
 }
