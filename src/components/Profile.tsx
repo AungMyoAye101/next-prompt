@@ -26,6 +26,13 @@ const Profile: FC<ProfileProp> = ({ img, name, email, posts }) => {
           {email}
         </p>
       </div>
+      <div>
+        {posts.map((post, i) => (
+          <div key={i}>
+            <h1>{post.prompt}</h1>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
