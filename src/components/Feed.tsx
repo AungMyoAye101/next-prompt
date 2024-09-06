@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import PromptCard from "./PromptCard";
 
-interface AuthorProp {
+export interface AuthorProp {
   image: string;
   username: string;
   email: string;

@@ -4,16 +4,13 @@ import { connectToDb } from "@/utils/database";
 
 export const GET = async (request, { params }) => {
   try {
-    await connectToDB();
-
-    const prompts = await Prompt.find({ author: params.useId }).populate(
+    await connectToDb();
+    const prompts = await Prompt.find({ author: params.userId }).populate(
       "author"
     );
 
     return new Response(JSON.stringify(prompts), { status: 200 });
   } catch (error) {
-    return new Response("Failed to fetch prompts created by user", {
-      status: 500,
-    });
+    return new Response("Failed to fetch prompt data", { status: 500 });
   }
 };
