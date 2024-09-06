@@ -1,15 +1,13 @@
 import Image from "next/image";
 import React, { FC } from "react";
-import PromptCard, { PromptCardProps } from "./PromptCard";
+import PromptCard from "./PromptCard";
+import { PromptProps } from "./Feed";
 
-interface AuthorProps {
-  author: PromptCardProps;
-}
 interface ProfileProp {
   img: string;
   name: string;
   email: string;
-  posts: PromptCardProps[];
+  posts: PromptProps[];
 }
 
 const Profile: FC<ProfileProp> = ({ img, name, email, posts }) => {
@@ -30,9 +28,9 @@ const Profile: FC<ProfileProp> = ({ img, name, email, posts }) => {
         </p>
       </div>
       <div>
-        {posts.map((post) => (
+        {posts.map((post, i) => (
           <PromptCard
-            key={post._id}
+            key={i}
             name={post.author.username}
             email={post.author.email}
             img={post.author.image}
