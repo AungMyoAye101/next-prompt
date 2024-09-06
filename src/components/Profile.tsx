@@ -13,7 +13,7 @@ interface ProfileProp {
 
 const Profile: FC<ProfileProp> = ({ img, name, email, posts }) => {
   return (
-    <section className="flex flex-col justify-center items-center gap-4 mt-4">
+    <section className="flex flex-col justify-center items-center gap-4 mt-4 p-8">
       <div className="relative size-40">
         <Image
           src={img}

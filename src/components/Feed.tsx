@@ -31,7 +31,10 @@ const Feed = () => {
       <h1 className="text-xl font-semibold font-serif">Populer Prompts </h1>
       <section className="grid sm:grid-cols-2 md:grid-col-3 lg:grid-cols-4 gap-4 py-6">
         {posts.map((post, i) => (
-          <div key={i}>
+          <div
+            key={i}
+            className="p-4 rounded-md border border-gray-300 shadow-lg"
+          >
             <PromptCard
               img={post.author.image}
               name={post.author.username}

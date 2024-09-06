@@ -21,7 +21,7 @@ const PromptCard: FC<PromptCardProps> = ({ img, name, email, prompt, tag }) => {
           className="rounded-full "
         />
         <div>
-          <h1 className="text-md font-semibold font-serif ">{name}</h1>
+          <h1 className="text-md font-serif text-gray-800 ">{name}</h1>
           <p className="text-sm text-gray-600 ">{email}</p>
         </div>
       </div>
@@ -29,6 +29,7 @@ const PromptCard: FC<PromptCardProps> = ({ img, name, email, prompt, tag }) => {
         <p className="text-gray-700 font-serif ">{prompt}</p>
         <p className=" font-serif text-sm font-semibold text-gray-800">{tag}</p>
       </div>
+      <div className="flex-1"></div>
     </section>
   );
 };
