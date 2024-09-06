@@ -11,7 +11,7 @@ export interface PromptCardProps {
 
 const PromptCard: FC<PromptCardProps> = ({ img, name, email, prompt, tag }) => {
   return (
-    <section className="flex flex-col gap-2 p-4 rounded-md border border-gray-300 shadow-lg ">
+    <section className="flex flex-col gap-2  ">
       <div className="flex gap-2 items-center ">
         <Image
           src={img}
