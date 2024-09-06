@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import React, { FC } from "react";
 import PromptCard from "./PromptCard";
@@ -9,9 +11,16 @@ interface ProfileProp {
   name: string;
   email: string;
   posts: PromptProps[];
+  handelDelete: (postId: string) => Promise<void>;
 }
 
-const Profile: FC<ProfileProp> = ({ img, name, email, posts }) => {
+const Profile: FC<ProfileProp> = ({
+  img,
+  name,
+  email,
+  posts,
+  handelDelete,
+}) => {
   return (
     <section className="flex flex-col justify-center items-center gap-4 mt-4 p-8">
       <div className="relative size-40">
@@ -30,9 +39,9 @@ const Profile: FC<ProfileProp> = ({ img, name, email, posts }) => {
       </div>
       <div>
         <section className="grid sm:grid-cols-2 md:grid-col-3 lg:grid-cols-4 gap-4 py-6">
-          {posts.map((post, i) => (
+          {posts.map((post) => (
             <div
-              key={i}
+              key={post._id}
               className="flex flex-col gap-2 p-2 rounded-md border border-gray-300 shadow-lg"
             >
               <PromptCard
@@ -49,12 +58,12 @@ const Profile: FC<ProfileProp> = ({ img, name, email, posts }) => {
                 >
                   Edit
                 </Link>
-                <Link
-                  href={"/prompt/edit"}
+                <button
+                  onClick={() => handelDelete(post._id)}
                   className="py-1 px-2 rounded shadow-md text-sm text-red-500 hover:bg-red-500 hover:text-gray-100 font-sans font-semibold "
                 >
                   Delete
-                </Link>
+                </button>
               </div>
             </div>
           ))}

@@ -4,11 +4,13 @@ import React, { useEffect, useState } from "react";
 import PromptCard from "./PromptCard";
 
 export interface AuthorProp {
+  _id: string;
   image: string;
   username: string;
   email: string;
 }
 export interface PromptProps {
+  _id: string;
   prompt: string;
   tag: string;
   author: AuthorProp;

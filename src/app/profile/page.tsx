@@ -25,6 +25,9 @@ const ProfilePage = () => {
     if (session?.user.id) fetchPosts();
   }, []);
   console.log(posts);
+  const handelDelete = async (postId: string) => {
+    alert(postId);
+  };
   return (
     <div>
       <Profile
@@ -32,6 +35,7 @@ const ProfilePage = () => {
         name={session?.user?.name!}
         email={session?.user?.email!}
         posts={posts}
+        handelDelete={handelDelete}
       />
     </div>
   );
