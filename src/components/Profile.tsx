@@ -45,13 +45,13 @@ const Profile: FC<ProfileProp> = ({ img, name, email, posts }) => {
               <div className="flex gap-1 justify-end">
                 <Link
                   href={"/prompt/edit"}
-                  className="py-1 px-2 rounded-md shadow-md text-sm bg-blue-500 font-sans font-semibold text-gray-100"
+                  className="py-1 px-2 rounded shadow-md text-sm text-blue-500  hover:bg-blue-500 hover:text-gray-100 font-sans font-semibold "
                 >
                   Edit
                 </Link>
                 <Link
                   href={"/prompt/edit"}
-                  className="py-1 px-2 rounded-md shadow-md text-sm bg-red-500 font-sans font-semibold text-gray-100"
+                  className="py-1 px-2 rounded shadow-md text-sm text-red-500 hover:bg-red-500 hover:text-gray-100 font-sans font-semibold "
                 >
                   Delete
                 </Link>

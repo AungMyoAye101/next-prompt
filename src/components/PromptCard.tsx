@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import React, { FC } from "react";
 
 export interface PromptCardProps {
@@ -29,7 +30,6 @@ const PromptCard: FC<PromptCardProps> = ({ img, name, email, prompt, tag }) => {
         <p className="text-gray-700 font-serif ">{prompt}</p>
         <p className=" font-serif text-sm font-semibold text-gray-800">{tag}</p>
       </div>
-      <div className="flex-1"></div>
     </section>
   );
 };
