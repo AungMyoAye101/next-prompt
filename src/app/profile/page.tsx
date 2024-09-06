@@ -26,7 +26,19 @@ const ProfilePage = () => {
   }, []);
   console.log(posts);
   const handelDelete = async (postId: string) => {
-    alert(postId);
+    const hasConfirmed = confirm(
+      "Are you sure you want to delete this prompt?"
+    );
+
+    if (hasConfirmed) {
+      try {
+        await fetch(`/api/prompt/${postId}`, {
+          method: "DELETE",
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
   return (
     <div>
