@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 
-const ProfilePage = () => {
+const ProfilePage = (params: { params: { id: string } }) => {
   const router = useRouter();
   const { data: session } = useSession();
   const [posts, setPosts] = useState([]);

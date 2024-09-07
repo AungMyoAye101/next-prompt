@@ -5,6 +5,7 @@ import React, { FC } from "react";
 import PromptCard from "./PromptCard";
 import { PromptProps } from "./Feed";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 interface ProfileProp {
   img: string;
@@ -21,6 +22,7 @@ const Profile: FC<ProfileProp> = ({
   posts,
   handelDelete,
 }) => {
+  const { data: session } = useSession();
   return (
     <section className="flex flex-col justify-center items-center gap-4 mt-4 p-8">
       <div className="relative size-40">

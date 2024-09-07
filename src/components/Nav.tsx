@@ -40,7 +40,7 @@ const Nav = () => {
               Sign Out
             </button>
 
-            <Link href={"/profile"}>
+            <Link href={`/profile/${session?.user.id}`}>
               <Image
                 src={`${session.user.image}`}
                 width={40}
@@ -94,7 +94,7 @@ const Nav = () => {
             Home
           </Link>
           <Link
-            href={"/profile"}
+            href={`/profile/${session?.user.id}`}
             className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
             onClick={() => setToggle((pre) => !pre)}
           >
