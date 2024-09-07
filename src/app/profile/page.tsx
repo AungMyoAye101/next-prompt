@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { redirect } from "next/navigation";
 
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -39,6 +40,7 @@ const ProfilePage = () => {
         console.log(error);
       }
     }
+    redirect("/profile");
   };
   return (
     <div>
