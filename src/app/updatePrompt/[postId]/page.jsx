@@ -11,8 +11,6 @@ const UpdatePrompt = ({ params }) => {
     const prompt = formData.get("prompt");
     const tag = formData.get("tag");
 
-    console.log(params.postId);
-
     try {
       const res = await fetch(`/api/prompt/${params.postId}`, {
         method: "PATCH",
@@ -31,7 +29,7 @@ const UpdatePrompt = ({ params }) => {
 
   return (
     <div className="p-4">
-      <PromptCreateForm createPrompt={updatePrompt} />
+      <PromptCreateForm type="Edit" createPrompt={updatePrompt} />
     </div>
   );
 };

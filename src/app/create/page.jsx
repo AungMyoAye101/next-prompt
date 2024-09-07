@@ -31,7 +31,7 @@ const CreatePrompt = () => {
 
   return (
     <div className="p-4">
-      <PromptCreateForm createPrompt={createPrompt} />
+      <PromptCreateForm type="Create" createPrompt={createPrompt} />
     </div>
   );
 };
