@@ -5,13 +5,15 @@ import PromptCard from "@/components/PromptCard";
 import { connectToDb } from "@/utils/database";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 
 const ProfilePage = () => {
+  const router = useRouter();
   const { data: session } = useSession();
   const [posts, setPosts] = useState([]);
+  console.log(posts);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -40,7 +42,10 @@ const ProfilePage = () => {
         console.log(error);
       }
     }
-    redirect("/profile");
+
+    const filteredPost = posts.filter((p: any) => p._id !== postId);
+    setPosts(filteredPost);
+    router.push("/profile");
   };
   return (
     <div>
