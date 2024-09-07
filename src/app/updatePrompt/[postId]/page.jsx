@@ -6,27 +6,27 @@ import { revalidatePath } from "next/cache";
 import { redirect, useRouter } from "next/navigation";
 
 const UpdatePrompt = ({ params }) => {
+  const router = useRouter();
   const updatePrompt = async (formData) => {
-    const router = useRouter();
     const prompt = formData.get("prompt");
     const tag = formData.get("tag");
 
     console.log(params.postId);
 
-    // try {
-    //   const res = await fetch(`/api/prompt/${params.id}`, {
-    //     method: "PATCH",
-    //     body: JSON.stringify({
-    //       prompt,
-    //       tag,
-    //     }),
-    //   });
-    //   if (res.ok) {
-    //     router.push("/");
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const res = await fetch(`/api/prompt/${params.postId}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          prompt,
+          tag,
+        }),
+      });
+      if (res.ok) {
+        router.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
