@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 
 interface ProfileProp {
+  id: string;
   img: string;
   name: string;
   email: string;
@@ -16,6 +17,7 @@ interface ProfileProp {
 }
 
 const Profile: FC<ProfileProp> = ({
+  id,
   img,
   name,
   email,
@@ -47,26 +49,29 @@ const Profile: FC<ProfileProp> = ({
               className="flex flex-col gap-2 p-2 rounded-md border border-gray-300 shadow-lg"
             >
               <PromptCard
+                id={id}
                 name={post.author.username}
                 email={post.author.email}
                 img={post.author.image}
                 prompt={post.prompt}
                 tag={post.tag}
               />
-              <div className="flex gap-1 justify-end">
-                <Link
-                  href={`/updatePrompt/${post._id}`}
-                  className="py-1 px-2 rounded  text-sm text-blue-500  hover:bg-blue-500 hover:text-gray-100 font-sans font-semibold "
-                >
-                  Edit
-                </Link>
-                <button
-                  onClick={() => handelDelete(post._id)}
-                  className="py-1 px-2 rounded  text-sm text-red-500 hover:bg-red-500 hover:text-gray-100 font-sans font-semibold "
-                >
-                  Delete
-                </button>
-              </div>
+              {id === session?.user.id && (
+                <div className="flex gap-1 justify-end">
+                  <Link
+                    href={`/updatePrompt/${post._id}`}
+                    className="py-1 px-2 rounded  text-sm text-blue-500  hover:bg-blue-500 hover:text-gray-100 font-sans font-semibold "
+                  >
+                    Edit
+                  </Link>
+                  <button
+                    onClick={() => handelDelete(post._id)}
+                    className="py-1 px-2 rounded  text-sm text-red-500 hover:bg-red-500 hover:text-gray-100 font-sans font-semibold "
+                  >
+                    Delete
+                  </button>
+                </div>
+              )}
             </div>
           ))}
         </section>

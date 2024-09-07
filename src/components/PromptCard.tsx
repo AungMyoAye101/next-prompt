@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { FC } from "react";
 
 export interface PromptCardProps {
+  id: string;
   img: string;
   name: string;
   email: string;
@@ -10,7 +11,14 @@ export interface PromptCardProps {
   tag: string;
 }
 
-const PromptCard: FC<PromptCardProps> = ({ img, name, email, prompt, tag }) => {
+const PromptCard: FC<PromptCardProps> = ({
+  id,
+  img,
+  name,
+  email,
+  prompt,
+  tag,
+}) => {
   return (
     <section className="flex flex-col gap-2  ">
       <div className="flex gap-2 items-center ">
