@@ -32,13 +32,15 @@ const PromptCard: FC<PostsProp> = ({ userId, post, handelDelete }) => {
             >
               <div className="flex flex-col gap-2  ">
                 <div className="flex gap-2 items-center ">
-                  <Image
-                    src={post.img}
-                    width={40}
-                    height={40}
-                    alt="user profile"
-                    className="rounded-full "
-                  />
+                  <Link href={`/profile/${userId}`}>
+                    <Image
+                      src={post.img}
+                      width={40}
+                      height={40}
+                      alt="user profile"
+                      className="rounded-full "
+                    />
+                  </Link>
                   <div>
                     <h1 className="text-md font-serif text-gray-800 ">
                       {post.name}
