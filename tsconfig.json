@@ -31,7 +31,8 @@
     "src/app/api/user/route.js",
     "src/utils/database.js",
     "src/app/create/page.tsx",
-    "src/app/api/user/[userId]/post/route.js"
+    "src/app/api/user/[userId]/post/route.js",
+    "src/app/updatePrompt/[postId]/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

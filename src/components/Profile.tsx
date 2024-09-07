@@ -53,7 +53,7 @@ const Profile: FC<ProfileProp> = ({
               />
               <div className="flex gap-1 justify-end">
                 <Link
-                  href={"/prompt/edit"}
+                  href={`/updatePrompt/${post._id}`}
                   className="py-1 px-2 rounded  text-sm text-blue-500  hover:bg-blue-500 hover:text-gray-100 font-sans font-semibold "
                 >
                   Edit

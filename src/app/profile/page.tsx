@@ -25,7 +25,7 @@ const ProfilePage = () => {
 
     if (session?.user.id) fetchPosts();
   }, []);
-  console.log(posts);
+
   const handelDelete = async (postId: string) => {
     const hasConfirmed = confirm(
       "Are you sure you want to delete this prompt?"

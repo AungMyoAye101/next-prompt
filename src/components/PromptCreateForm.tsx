@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 interface CreatePrompt {
-  createPrompt: () => void;
+  createPrompt: () => Promise<void>;
 }
 const PromptCreateForm = ({ createPrompt }: CreatePrompt) => {
   return (

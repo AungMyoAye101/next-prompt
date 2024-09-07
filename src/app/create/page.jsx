@@ -13,7 +13,7 @@ const CreatePrompt = () => {
     const prompt = formData.get("prompt");
     const tag = formData.get("tag");
     try {
-      const res = fetch("/api/prompt/new", {
+      const res = await fetch("/api/prompt/new", {
         method: "POST",
         body: JSON.stringify({
           userId: session.user.id,
