@@ -24,7 +24,6 @@ const Profile: FC<ProfileProp> = ({
   posts,
   handelDelete,
 }) => {
-  const { data: session } = useSession();
   return (
     <section className="flex flex-col justify-center items-center gap-4 mt-4 p-8">
       <div className="relative size-40">
@@ -42,7 +41,7 @@ const Profile: FC<ProfileProp> = ({
         </p>
       </div>
       <div>
-        <section className="grid sm:grid-cols-2 md:grid-col-3 lg:grid-cols-4 gap-4 py-6">
+        {/* <section className="grid sm:grid-cols-2 md:grid-col-3 lg:grid-cols-4 gap-4 py-6">
           {posts.map((post) => (
             <div
               key={post._id}
@@ -56,25 +55,11 @@ const Profile: FC<ProfileProp> = ({
                 prompt={post.prompt}
                 tag={post.tag}
               />
-              {id === session?.user.id && (
-                <div className="flex gap-1 justify-end">
-                  <Link
-                    href={`/updatePrompt/${post._id}`}
-                    className="py-1 px-2 rounded  text-sm text-blue-500  hover:bg-blue-500 hover:text-gray-100 font-sans font-semibold "
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    onClick={() => handelDelete(post._id)}
-                    className="py-1 px-2 rounded  text-sm text-red-500 hover:bg-red-500 hover:text-gray-100 font-sans font-semibold "
-                  >
-                    Delete
-                  </button>
-                </div>
-              )}
+             
             </div>
           ))}
-        </section>
+        </section> */}
+        <PromptCard userId={id} post={posts} handelDelete={handelDelete} />
       </div>
     </section>
   );
