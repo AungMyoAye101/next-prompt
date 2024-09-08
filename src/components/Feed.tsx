@@ -39,7 +39,7 @@ const Feed = () => {
           <PromptCard
             userId={session.user.id}
             post={posts}
-            handelDelete={null}
+            handelDelete={async () => {}}
           />
         </>
       )}

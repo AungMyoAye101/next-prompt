@@ -17,7 +17,7 @@ export interface PromptCardProps {
 interface PostsProp {
   userId: string;
   post: PromptProps[];
-  handelDelete: (postId: string) => Promise<void> | null;
+  handelDelete: (postId: string) => Promise<void>;
 }
 
 const PromptCard: FC<PostsProp> = ({ userId, post, handelDelete }) => {
