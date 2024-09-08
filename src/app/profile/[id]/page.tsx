@@ -60,7 +60,7 @@ const ProfilePage = ({ params }: { params: { id: string } }) => {
 
     const filteredPost = posts.filter((p: any) => p._id !== postId);
     setPosts(filteredPost);
-    router.push("/profile");
+    router.push(`/profile/${session?.user.id}`);
   };
   return (
     <div>

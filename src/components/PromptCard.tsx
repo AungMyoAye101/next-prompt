@@ -26,7 +26,7 @@ const PromptCard: FC<PostsProp> = ({ userId, post, handelDelete }) => {
   console.log(post);
   return (
     <>
-      <section className="grid sm:grid-cols-2 md:grid-col-3 lg:grid-col-4 gap-4 py-6">
+      <section className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-self-center  gap-4 py-6">
         {post !== undefined &&
           post.map((post) => (
             <div

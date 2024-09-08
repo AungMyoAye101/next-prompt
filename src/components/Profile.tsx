@@ -41,24 +41,6 @@ const Profile: FC<ProfileProp> = ({
         </p>
       </div>
       <div>
-        {/* <section className="grid sm:grid-cols-2 md:grid-col-3 lg:grid-cols-4 gap-4 py-6">
-          {posts.map((post) => (
-            <div
-              key={post._id}
-              className="flex flex-col gap-2 p-2 rounded-md border border-gray-300 shadow-lg"
-            >
-              <PromptCard
-                id={id}
-                name={post.author.username}
-                email={post.author.email}
-                img={post.author.image}
-                prompt={post.prompt}
-                tag={post.tag}
-              />
-             
-            </div>
-          ))}
-        </section> */}
         <PromptCard userId={id} post={posts} handelDelete={handelDelete} />
       </div>
     </section>
