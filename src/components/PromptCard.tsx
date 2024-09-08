@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import React, { FC } from "react";
+import { PromptProps } from "./Feed";
+import { usePathname } from "next/navigation";
 
 export interface PromptCardProps {
   _id: string;
@@ -14,16 +16,17 @@ export interface PromptCardProps {
 }
 interface PostsProp {
   userId: string;
-  post: PromptCardProps[];
+  post: PromptProps[];
   handelDelete: (postId: string) => Promise<void> | null;
 }
 
 const PromptCard: FC<PostsProp> = ({ userId, post, handelDelete }) => {
   const { data: session } = useSession();
+  const pathName = usePathname();
   console.log(post);
   return (
     <>
-      <section className="grid sm:grid-cols-2 md:grid-col-3 lg:grid-cols-4 gap-4 py-6">
+      <section className="grid sm:grid-cols-2 md:grid-col-3 lg:grid-col-4 gap-4 py-6">
         {post !== undefined &&
           post.map((post) => (
             <div
@@ -56,22 +59,23 @@ const PromptCard: FC<PostsProp> = ({ userId, post, handelDelete }) => {
                     {post.tag}
                   </p>
                 </div>
-                {userId === session?.user.id && (
-                  <div className="flex gap-1 justify-end">
-                    <Link
-                      href={`/updatePrompt/${post._id}`}
-                      className="py-1 px-2 rounded  text-sm text-blue-500  hover:bg-blue-500 hover:text-gray-100 font-sans font-semibold "
-                    >
-                      Edit
-                    </Link>
-                    <button
-                      onClick={() => handelDelete(post._id)}
-                      className="py-1 px-2 rounded  text-sm text-red-500 hover:bg-red-500 hover:text-gray-100 font-sans font-semibold "
-                    >
-                      Delete
-                    </button>
-                  </div>
-                )}
+                {post.author._id === session?.user.id &&
+                  pathName === "/profile" && (
+                    <div className="flex gap-1 justify-end">
+                      <Link
+                        href={`/updatePrompt/${post._id}`}
+                        className="py-1 px-2 rounded  text-sm text-blue-500  hover:bg-blue-500 hover:text-gray-100 font-sans font-semibold "
+                      >
+                        Edit
+                      </Link>
+                      <button
+                        onClick={() => handelDelete(post._id)}
+                        className="py-1 px-2 rounded  text-sm text-red-500 hover:bg-red-500 hover:text-gray-100 font-sans font-semibold "
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  )}
               </div>
             </div>
           ))}
