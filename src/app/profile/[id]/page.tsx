@@ -9,11 +9,23 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 
+interface User {
+  id: string;
+  image: string;
+  username: string;
+  email: string;
+}
+
 const ProfilePage = ({ params }: { params: { id: string } }) => {
   const router = useRouter();
   const { data: session } = useSession();
   const [posts, setPosts] = useState([]);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState<User>({
+    id: "",
+    image: "",
+    username: "",
+    email: "",
+  });
 
   useEffect(() => {
     const fetchPosts = async () => {
