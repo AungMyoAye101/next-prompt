@@ -35,7 +35,7 @@ const PromptCard: FC<PostsProp> = ({ userId, post, handelDelete }) => {
             >
               <div className="flex flex-col gap-2  ">
                 <div className="flex gap-2 items-center ">
-                  <Link href={`/profile/${userId}`}>
+                  <Link href={`/profile/${post.author._id}`}>
                     <Image
                       src={post.author.image}
                       width={40}

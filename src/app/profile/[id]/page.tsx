@@ -20,13 +20,16 @@ const ProfilePage = ({ params }: { params: { id: string } }) => {
       if (!session?.user) {
         return;
       }
-      const res = await fetch(`/api/user/${session?.user.id}`);
+      const res = await fetch(`/api/user/${params.id}`);
+      const resUser = await fetch(`/api/user/${params.id}/profile`);
       const data = await res.json();
+      const user = await resUser.json();
+      console.log("user" + user);
       setPosts(data);
     };
 
-    if (session?.user.id) fetchPosts();
-  }, []);
+    if (params.id) fetchPosts();
+  }, [params.id]);
 
   const handelDelete = async (postId: string) => {
     const hasConfirmed = confirm(
