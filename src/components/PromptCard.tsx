@@ -31,7 +31,7 @@ const PromptCard: FC<PostsProp> = ({ userId, post, handelDelete }) => {
           post.map((post) => (
             <div
               key={post._id}
-              className="flex flex-col gap-2 p-2 rounded-md border border-gray-300 shadow-lg"
+              className="flex flex-col gap-2 p-4 min-w-72 rounded-md border border-gray-300 shadow-lg hover:bg-blue-200 hover:shadow-orange-200  hover:scale-105 transition-all ease-in-out duration-200"
             >
               <div className="flex flex-col gap-2  ">
                 <div className="flex gap-2 items-center ">
@@ -41,11 +41,11 @@ const PromptCard: FC<PostsProp> = ({ userId, post, handelDelete }) => {
                       width={40}
                       height={40}
                       alt="user profile"
-                      className="rounded-full "
+                      className="rounded-full ring ring-sky-400"
                     />
                   </Link>
                   <div>
-                    <h1 className="text-md font-serif text-gray-800 ">
+                    <h1 className="text-md font-serif font-semibold text-gray-800 ">
                       {post.author.username}
                     </h1>
                     <p className="text-sm text-gray-600 ">
