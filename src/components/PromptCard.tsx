@@ -20,7 +20,7 @@ interface PostsProp {
 
 const PromptCard: FC<PostsProp> = ({ userId, post, handelDelete }) => {
   const { data: session } = useSession();
-
+  console.log(post);
   return (
     <>
       <section className="grid sm:grid-cols-2 md:grid-col-3 lg:grid-cols-4 gap-4 py-6">
@@ -34,7 +34,7 @@ const PromptCard: FC<PostsProp> = ({ userId, post, handelDelete }) => {
                 <div className="flex gap-2 items-center ">
                   <Link href={`/profile/${userId}`}>
                     <Image
-                      src={post.img}
+                      src={post.author.image}
                       width={40}
                       height={40}
                       alt="user profile"
@@ -43,9 +43,11 @@ const PromptCard: FC<PostsProp> = ({ userId, post, handelDelete }) => {
                   </Link>
                   <div>
                     <h1 className="text-md font-serif text-gray-800 ">
-                      {post.name}
+                      {post.author.username}
                     </h1>
-                    <p className="text-sm text-gray-600 ">{post.email}</p>
+                    <p className="text-sm text-gray-600 ">
+                      {post.author.email}
+                    </p>
                   </div>
                 </div>
                 <div>
