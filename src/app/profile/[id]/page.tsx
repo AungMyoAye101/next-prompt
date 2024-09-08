@@ -13,7 +13,7 @@ const ProfilePage = ({ params }: { params: { id: string } }) => {
   const router = useRouter();
   const { data: session } = useSession();
   const [posts, setPosts] = useState([]);
-  console.log(posts);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -24,7 +24,7 @@ const ProfilePage = ({ params }: { params: { id: string } }) => {
       const resUser = await fetch(`/api/user/${params.id}/profile`);
       const data = await res.json();
       const user = await resUser.json();
-      console.log("user" + user);
+      setUser(user);
       setPosts(data);
     };
 
@@ -54,9 +54,9 @@ const ProfilePage = ({ params }: { params: { id: string } }) => {
     <div>
       <Profile
         id={params.id}
-        img={session?.user?.image!}
-        name={session?.user?.name!}
-        email={session?.user?.email!}
+        img={user.image}
+        name={user.username}
+        email={user.email}
         posts={posts}
         handelDelete={handelDelete}
       />
