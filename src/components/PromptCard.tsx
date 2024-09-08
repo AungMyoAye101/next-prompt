@@ -60,7 +60,7 @@ const PromptCard: FC<PostsProp> = ({ userId, post, handelDelete }) => {
                   </p>
                 </div>
                 {post.author._id === session?.user.id &&
-                  pathName === "/profile" && (
+                  pathName === `/profile/${post.author._id}` && (
                     <div className="flex gap-1 justify-end">
                       <Link
                         href={`/updatePrompt/${post._id}`}

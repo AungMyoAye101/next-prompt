@@ -35,13 +35,12 @@ const Feed = () => {
       {session?.user.id && (
         <>
           <h1 className="text-xl font-semibold font-serif">Populer Prompts </h1>
-          {posts.map((post) => (
-            <PromptCard
-              userId={session.user.id}
-              post={posts}
-              handelDelete={null}
-            />
-          ))}
+
+          <PromptCard
+            userId={session.user.id}
+            post={posts}
+            handelDelete={null}
+          />
         </>
       )}
     </section>
