@@ -33,15 +33,15 @@ const PromptCard: FC<PostsProp> = ({
   return (
     <>
       <section
-        className={`grid sm:grid-cols-2 ${
-          !isProfile ? "md:grid-cols-3 lg:grid-cols-4 " : ""
+        className={`grid sm:grid-cols-2 md:grid-cols-3  ${
+          !isProfile ? "lg:grid-cols-4 " : ""
         }gap-4 `}
       >
         {post !== undefined &&
           post.map((post) => (
             <div
               key={post._id}
-              className="flex flex-col gap-2 p-4 min-w-64 rounded-md border border-gray-300 shadow-lg hover:border-blue-400 hover:shadow-orange-200  hover:scale-105 transition-all ease-in-out duration-200"
+              className="flex flex-col gap-2 p-2 min-w-64 rounded-md border border-gray-300 shadow-lg hover:border-blue-400 hover:shadow-orange-200  hover:scale-105 transition-all ease-in-out duration-200"
             >
               <div className="flex flex-col gap-2  ">
                 <div className="flex gap-2 items-center ">
@@ -69,6 +69,7 @@ const PromptCard: FC<PostsProp> = ({
                     {post.tag}
                   </p>
                 </div>
+
                 {post.author._id === session?.user.id &&
                   pathName === `/profile/${post.author._id}` && (
                     <div className="flex gap-1 justify-end">
