@@ -40,6 +40,7 @@ const Feed = () => {
             userId={session.user.id}
             post={posts}
             handelDelete={async () => {}}
+            isProfile={false}
           />
         </>
       )}
