@@ -25,8 +25,8 @@ const Profile: FC<ProfileProp> = ({
   handelDelete,
 }) => {
   return (
-    <section className="flex  gap-4 mt-2 p-8">
-      <div className="flex flex-col items-center gap-2 p-4 border border-red-400">
+    <section className="flex  gap-4 mt-2 p-4">
+      <div className="flex flex-col items-center gap-2 p-4 border border-gray-300 shadow-md rounded-md">
         <div className="relative size-24">
           <Image
             src={img}
@@ -35,11 +35,28 @@ const Profile: FC<ProfileProp> = ({
             className="object-cover rounded-full mx-auto"
           />
         </div>
-        <div className=" text-center space-y-1">
-          <h1 className="text-lg font-semibold font-serif">{name}</h1>
-          <p className="text-md text-gray-500 font-semibold font-serif">
+        <div className="  flex flex-col gap-1  items-center">
+          <h1 className="text-md font-semibold text-gray-600 font-sans  w-full text-center p-1 transition-all ease-in-out duration-500 hover:bg-orange-400 hover:shadow-md">
+            {name}
+          </h1>
+          <p className="text-sm text-gray-500 font-semibold font-serif rounded hover:rounded-full shadow border-gray-200 border w-full text-center p-2 transition-all ease-in-out duration-300 hover:bg-orange-400 hover:shadow-md">
             {email}
           </p>
+          <Link
+            href={"/"}
+            className="text-sm text-gray-500 font-semibold font-serif rounded hover:rounded-full shadow border-gray-200 border w-full text-center p-2 transition-all ease-in-out duration-300 hover:bg-orange-400 hover:shadow-md"
+          >
+            create new
+          </Link>
+          <Link
+            href={"/"}
+            className="text-sm text-gray-500 font-semibold font-serif rounded hover:rounded-full shadow border-gray-200 border w-full text-center p-2 transition-all ease-in-out duration-300 hover:bg-orange-400 hover:shadow-md"
+          >
+            back to home
+          </Link>
+          <button className="text-sm text-red-500 font-semibold font-serif rounded hover:rounded-full shadow border-gray-200 border w-full text-center p-2 transition-all ease-in-out duration-300 hover:text-gray-800  hover:bg-red-400 hover:shadow-md">
+            logout
+          </button>
         </div>
       </div>
       <div>
