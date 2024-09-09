@@ -5,7 +5,7 @@ import React, { FC } from "react";
 import PromptCard from "./PromptCard";
 import { PromptProps } from "./Feed";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 interface ProfileProp {
   id: string;
@@ -43,7 +43,7 @@ const Profile: FC<ProfileProp> = ({
             {email}
           </p>
           <Link
-            href={"/"}
+            href={"/create"}
             className="text-sm text-gray-500 font-semibold font-serif rounded hover:rounded-full shadow border-gray-200 border w-full text-center p-2 transition-all ease-in-out duration-300 hover:bg-orange-400 hover:shadow-md"
           >
             create new
@@ -54,7 +54,10 @@ const Profile: FC<ProfileProp> = ({
           >
             back to home
           </Link>
-          <button className="text-sm text-red-500 font-semibold font-serif rounded hover:rounded-full shadow border-gray-200 border w-full text-center p-2 transition-all ease-in-out duration-300 hover:text-gray-800  hover:bg-red-400 hover:shadow-md">
+          <button
+            onClick={() => signOut()}
+            className="text-sm text-red-500 font-semibold font-serif rounded hover:rounded-full shadow border-gray-200 border w-full text-center p-2 transition-all ease-in-out duration-300 hover:text-gray-800  hover:bg-red-400 hover:shadow-md"
+          >
             logout
           </button>
         </div>

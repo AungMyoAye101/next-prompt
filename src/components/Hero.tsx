@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="h-[calc(100vh-60px)] flex justify-center items-center p-6">
+    <section className="min-h-[calc(100vh-60px)] flex justify-center items-center p-6">
       <div className="text-center w-full md:w-[80vw] lg:w-[60vw] flex flex-col gap-2">
         <h1 className="text-3xl sm:text-4xl  md:text-5xl lg:text-6xl font-serif font-bold ">
           Discover & Share
