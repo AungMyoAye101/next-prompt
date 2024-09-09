@@ -31,7 +31,7 @@ const Feed = () => {
   }, []);
   console.log(posts);
   return (
-    <section className="p-4 md:p-6">
+    <section className="p-4 md:p-6 space-y-4">
       {session?.user.id && (
         <>
           <h1 className="text-xl font-semibold font-serif">Populer Prompts </h1>
