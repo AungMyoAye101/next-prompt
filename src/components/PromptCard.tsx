@@ -18,6 +18,7 @@ interface PostsProp {
   userId: string;
   post: PromptProps[];
   handelDelete: (postId: string) => Promise<void>;
+  handelTag: (tagName: string) => void;
   isProfile: boolean;
 }
 
@@ -25,6 +26,7 @@ const PromptCard: FC<PostsProp> = ({
   userId,
   post,
   handelDelete,
+  handelTag,
   isProfile,
 }) => {
   const { data: session } = useSession();
@@ -67,9 +69,12 @@ const PromptCard: FC<PostsProp> = ({
                   <p className="text-sm text-gray-700 font-serif ">
                     {post.prompt}
                   </p>
-                  <p className=" font-serif text-sm font-semibold text-gray-800">
+                  <button
+                    onClick={() => handelTag(post.tag)}
+                    className=" font-serif text-sm font-semibold text-gray-800"
+                  >
                     {post.tag}
-                  </p>
+                  </button>
                 </div>
 
                 {post.author._id === session?.user.id &&

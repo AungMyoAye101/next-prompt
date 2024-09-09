@@ -36,7 +36,10 @@ const Feed = () => {
   const filteredPosts = (searchText: string) => {
     const regex = new RegExp(searchText, "i");
     return posts.filter(
-      (post: any) => regex.test(post.author.username) || regex.test(post.prompt)
+      (post: any) =>
+        regex.test(post.author.username) ||
+        regex.test(post.prompt) ||
+        regex.test(post.tag)
     );
   };
 
@@ -44,6 +47,11 @@ const Feed = () => {
     target: { value: React.SetStateAction<string> };
   }) => {
     setSearchText(e.target.value);
+  };
+
+  const handelTag = (tagNmae: string) => {
+    setSearchText(tagNmae);
+    setSearchPosts(filteredPosts(searchText));
   };
 
   const searchForm = (e: { preventDefault: () => void }) => {
@@ -70,6 +78,7 @@ const Feed = () => {
             userId={session.user.id}
             post={searchPosts}
             handelDelete={async () => {}}
+            handelTag={handelTag}
             isProfile={false}
           />
         </>

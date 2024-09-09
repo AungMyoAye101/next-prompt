@@ -67,6 +67,7 @@ const Profile: FC<ProfileProp> = ({
           userId={id}
           post={posts}
           handelDelete={handelDelete}
+          handelTag={() => {}}
           isProfile={true}
         />
       </div>
