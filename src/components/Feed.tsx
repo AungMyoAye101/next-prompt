@@ -21,12 +21,13 @@ const Feed = () => {
   const [posts, setPosts] = useState([]);
   const [searchPosts, setSearchPosts] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [searchTimeout, setSearchTimeout] = useState(null);
+
   const fetchPost = async () => {
     const res = await fetch("/api/prompt");
     const data = await res.json();
 
     setPosts(data);
+    setSearchPosts(data);
   };
   useEffect(() => {
     fetchPost();
@@ -42,19 +43,12 @@ const Feed = () => {
   const handelChange = (e: {
     target: { value: React.SetStateAction<string> };
   }) => {
-    clearTimeout(searchTimeout);
     setSearchText(e.target.value);
-
-    setSearchTimeout(
-      setTimeout(() => {
-        const searchResult = filteredPosts(searchText);
-        setPosts(searchResult);
-      }, 500)
-    );
   };
 
   const searchForm = (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    setSearchPosts(filteredPosts(searchText));
   };
 
   return (
@@ -74,7 +68,7 @@ const Feed = () => {
 
           <PromptCard
             userId={session.user.id}
-            post={posts}
+            post={searchPosts}
             handelDelete={async () => {}}
             isProfile={false}
           />
