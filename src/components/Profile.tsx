@@ -65,7 +65,9 @@ const Profile: FC<ProfileProp> = ({
         </div>
 
         <div className="absolute right-4 flex flex-col gap-2 ">
-          <button>click</button>
+          <button className="px-2 py-1 rounded-full text-gray-700  bg-orange-300 ">
+            More
+          </button>
           <div className="flex flex-col gap-2 bg-white p-3 rounded shadow ">
             <Link
               href={"/create"}
