@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className=" bg-gradient-radial from-orange-100 to-slate-100">
         <Provider>
           <main className="max-w-6xl mx-auto">
             <Nav />
