@@ -70,19 +70,16 @@ const Feed = () => {
           className="w-full py-2 px-4 rounded shadow-lg border border-gray-400 focus:outline-none"
         />
       </form>
-      {session?.user.id && (
-        <>
-          <h1 className="text-xl font-semibold font-serif">Populer Prompts </h1>
 
-          <PromptCard
-            userId={session.user.id}
-            post={searchPosts}
-            handelDelete={async () => {}}
-            handelTag={handelTag}
-            isProfile={false}
-          />
-        </>
-      )}
+      <h1 className="text-xl font-semibold font-serif">Populer Prompts </h1>
+
+      <PromptCard
+        userId={session?.user.id!}
+        post={searchPosts}
+        handelDelete={async () => {}}
+        handelTag={handelTag}
+        isProfile={false}
+      />
     </section>
   );
 };
