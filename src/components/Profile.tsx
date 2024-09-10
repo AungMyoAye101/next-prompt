@@ -25,7 +25,7 @@ const Profile: FC<ProfileProp> = ({
   handelDelete,
 }) => {
   return (
-    <section className="flex  gap-4 mt-2 p-4">
+    <section className="flex flex-col md:flex-row gap-4 mt-2 p-4">
       <div className="flex flex-col items-center gap-2 p-4 border border-gray-300 shadow-md rounded-md">
         <div className="relative size-24">
           <Image

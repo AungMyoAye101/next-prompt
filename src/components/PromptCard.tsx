@@ -35,8 +35,8 @@ const PromptCard: FC<PostsProp> = ({
   return (
     <>
       <section
-        className={`grid sm:grid-cols-2 md:grid-cols-3  ${
-          !isProfile ? "lg:grid-cols-4 " : ""
+        className={`grid sm:grid-cols-2  ${
+          !isProfile ? "md:grid-cols-3  lg:grid-cols-4 " : ""
         }gap-4 `}
       >
         {post !== undefined &&
