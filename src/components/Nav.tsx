@@ -86,6 +86,12 @@ const Nav = () => {
       {/* mobile menu */}
       {toggle && (
         <section className="absolute right-0 top-12 rounded shadow-lg p-4 w-[90vw] flex flex-col gap-2 z-20 bg-slate-100">
+          <p
+            className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
+            onClick={() => signIn("google")}
+          >
+            Sign in
+          </p>
           <Link
             href={"/"}
             className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
@@ -108,13 +114,12 @@ const Nav = () => {
             Create new
           </Link>
 
-          <Link
-            href={"/"}
+          <p
             className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
-            onClick={() => setToggle((pre) => !pre)}
+            onClick={() => signOut()}
           >
-            Logout
-          </Link>
+            Sign Out
+          </p>
         </section>
       )}
     </nav>
