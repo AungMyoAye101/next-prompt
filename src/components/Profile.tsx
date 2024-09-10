@@ -25,8 +25,8 @@ const Profile: FC<ProfileProp> = ({
   handelDelete,
 }) => {
   return (
-    <section className="flex flex-col  md:flex-row  gap-4 mt-2 p-4 relative">
-      <div className="flex flex-col items-center gap-3 p-4 border border-gray-300 shadow-md rounded-md ">
+    <section className="flex flex-col  md:flex-row  gap-4 mt-2 p-4 ">
+      <div className="flex flex-col items-center gap-3 p-4 border border-gray-300 shadow-md rounded-md relative">
         <div className="relative size-24">
           <Image
             src={img}
@@ -63,8 +63,32 @@ const Profile: FC<ProfileProp> = ({
             </button>
           </div>
         </div>
+
+        <div className="absolute right-4 flex flex-col gap-2 ">
+          <button>click</button>
+          <div className="flex flex-col gap-2 bg-white p-3 rounded shadow ">
+            <Link
+              href={"/create"}
+              className="text-sm text-gray-500 font-semibold font-serif rounded hover:rounded-full shadow border-gray-200 border w-full text-center p-2 transition-all ease-in-out duration-300 hover:bg-orange-400 hover:shadow-md"
+            >
+              create new
+            </Link>
+            <Link
+              href={"/"}
+              className="text-sm text-gray-500 font-semibold font-serif rounded hover:rounded-full shadow border-gray-200 border w-full text-center p-2 transition-all ease-in-out duration-300 hover:bg-orange-400 hover:shadow-md"
+            >
+              back to home
+            </Link>
+            <button
+              onClick={() => signOut()}
+              className="text-sm text-red-500 font-semibold font-serif rounded hover:rounded-full shadow border-gray-200 border w-full text-center p-2 transition-all ease-in-out duration-300 hover:text-gray-800  hover:bg-red-400 hover:shadow-md"
+            >
+              logout
+            </button>
+          </div>
+        </div>
       </div>
-      <div>
+      <div className="pb-12">
         <PromptCard
           userId={id}
           post={posts}
@@ -73,26 +97,6 @@ const Profile: FC<ProfileProp> = ({
           isProfile={true}
         />
       </div>
-      <nav className="absolute bottom-2  bg-gray-800 rounded-full py-1 px-4 flex left-[30%] ">
-        <Link
-          href={"/"}
-          className="text-sm text-gray-500 font-semibold font-serif rounded hover:rounded-full shadow  text-center p-2 transition-all ease-in-out duration-300 hover:bg-orange-400 hover:shadow-md"
-        >
-          back to home
-        </Link>
-        <Link
-          href={"/create"}
-          className="text-sm text-gray-500 font-semibold font-serif rounded hover:rounded-full shadow  text-center p-2 transition-all ease-in-out duration-300 hover:bg-orange-400 hover:shadow-md"
-        >
-          create new
-        </Link>
-        <button
-          onClick={() => signOut()}
-          className="text-sm text-red-500 font-semibold font-serif rounded hover:rounded-full shadow   text-center p-2 transition-all ease-in-out duration-300 hover:text-gray-800  hover:bg-red-400 hover:shadow-md"
-        >
-          logout
-        </button>
-      </nav>
     </section>
   );
 };
