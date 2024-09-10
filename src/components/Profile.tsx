@@ -25,18 +25,18 @@ const Profile: FC<ProfileProp> = ({
   handelDelete,
 }) => {
   return (
-    <section className="flex flex-col md:flex-row gap-4 mt-2 p-4">
-      <div className="flex flex-col items-center gap-2 p-4 border border-gray-300 shadow-md rounded-md">
+    <section className="flex flex-row  gap-4 mt-2 p-4 ">
+      <div className="flex flex-col items-center gap-3 p-4 border border-gray-300 shadow-md rounded-md ">
         <div className="relative size-24">
           <Image
             src={img}
             fill
             alt="user profile"
-            className="object-cover rounded-full mx-auto"
+            className="object-cover rounded-full "
           />
         </div>
-        <div className="  flex flex-col gap-1  items-center">
-          <h1 className="text-md font-semibold text-gray-600 font-sans  w-full text-center p-1 transition-all ease-in-out duration-500 hover:bg-orange-400 hover:shadow-md">
+        <div className="  flex flex-col justify-between gap-1 ">
+          <h1 className="text-md font-semibold text-gray-600 font-sans  w-full text-center p-1 transition-all ease-in-out duration-500 bg-orange-400 hover:shadow-md rounded hover:rounded-full">
             {name}
           </h1>
           <p className="text-sm text-gray-500 font-semibold font-serif rounded hover:rounded-full shadow border-gray-200 border w-full text-center p-2 transition-all ease-in-out duration-300 hover:bg-orange-400 hover:shadow-md">
