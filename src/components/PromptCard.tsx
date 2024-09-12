@@ -5,7 +5,8 @@ import Link from "next/link";
 import React, { FC } from "react";
 import { PromptProps } from "./Feed";
 import { usePathname } from "next/navigation";
-
+import { MdEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 export interface PromptCardProps {
   _id: string;
   img: string;
@@ -60,15 +61,13 @@ const PromptCard: FC<PostsProp> = ({
                     <h1 className="text-md font-serif font-semibold text-gray-800 ">
                       {post.author.username}
                     </h1>
-                    <p className="text-sm text-gray-600 ">
+                    <p className="text-sm text-gray-500 ">
                       {post.author.email}
                     </p>
                   </div>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-700 font-serif ">
-                    {post.prompt}
-                  </p>
+                  <p className=" text-gray-700 font-serif ">{post.prompt}</p>
                   <button
                     onClick={() => handelTag(post.tag)}
                     className=" font-serif text-sm font-semibold text-gray-800 hover:text-blue-400"
@@ -82,15 +81,17 @@ const PromptCard: FC<PostsProp> = ({
                     <div className="flex gap-1 justify-end">
                       <Link
                         href={`/updatePrompt/${post._id}`}
-                        className="py-1 px-2 rounded  text-sm text-blue-500  hover:bg-blue-500 hover:text-gray-100 font-sans font-semibold "
+                        className="py-1 px-2 rounded border border-blue-300 text-blue-500  hover:bg-blue-500 hover:text-gray-100 font-sans font-semibold flex items-center gap-1"
                       >
-                        Edit
+                        <MdEdit />
+                        <span>Edit</span>
                       </Link>
                       <button
                         onClick={() => handelDelete(post._id)}
-                        className="py-1 px-2 rounded  text-sm text-red-500 hover:bg-red-500 hover:text-gray-100 font-sans font-semibold "
+                        className="py-1 px-2 rounded  border border-red-300 text-red-500 hover:bg-red-500 hover:text-gray-100 font-sans font-semiboldfont-semibold flex items-center gap-1"
                       >
-                        Delete
+                        <MdDelete />
+                        <span>Delete</span>
                       </button>
                     </div>
                   )}
