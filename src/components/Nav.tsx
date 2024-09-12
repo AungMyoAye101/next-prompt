@@ -3,6 +3,8 @@ import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { MdAddCard } from "react-icons/md";
+import { BiLogOut } from "react-icons/bi";
 
 const Nav = () => {
   const { data: session } = useSession();
@@ -16,7 +18,7 @@ const Nav = () => {
     };
   }, []);
   return (
-    <nav className="flex justify-between items-center py-2 px-4 shadow">
+    <nav className="flex justify-between items-center py-2 px-4 shadow mt-1">
       <Link href={"/"}>
         <h1 className="text-xl font-bold font-serif  bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-500 bg-clip-text text-transparent">
           {" "}
@@ -29,15 +31,16 @@ const Nav = () => {
           <>
             <Link
               href={"/create"}
-              className="px-3 py-1 rounded-md hover:bg-orange-500 text-slate-200 bg-gray-700 shadow-md text-sm font-semibold"
+              className="flex gap-1 items-center px-4 py-1 rounded-md hover:bg-orange-500 text-slate-200 bg-gray-700 shadow-md "
             >
-              Create New
+              <MdAddCard />
+              <span>Create New</span>
             </Link>
             <button
-              className="px-3 py-1 rounded-md bg-red-500 hover:bg-gray-800  shadow-md text-sm text-gray-100  font-semibold"
+              className=" flex items-center gap-1 px-4 py-1 rounded-md bg-red-500 hover:bg-gray-800  shadow-md  text-gray-900 hover:text-gray-200 "
               onClick={() => signOut()}
             >
-              Sign Out
+              <BiLogOut /> <span>Sign out</span>
             </button>
 
             <Link href={`/profile/${session?.user.id}`}>

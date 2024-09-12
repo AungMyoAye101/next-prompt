@@ -4,7 +4,7 @@ import Feed from "./Feed";
 const Hero = () => {
   return (
     <section className="min-h-[calc(100vh-60px)] flex flex-col justify-center items-center p-6">
-      <div className="text-center w-full md:w-[80vw] lg:w-[60vw] flex flex-col gap-2">
+      <div className="text-center w-full md:w-[80vw] lg:w-[60vw] flex flex-col gap-2 py-6">
         <h1 className="text-3xl sm:text-4xl  md:text-5xl lg:text-6xl font-serif font-bold ">
           Discover & Share
         </h1>
