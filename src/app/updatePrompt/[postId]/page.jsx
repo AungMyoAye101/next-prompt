@@ -25,6 +25,8 @@ const UpdatePrompt = ({ params }) => {
     } catch (error) {
       console.log(error);
     }
+    redirect("/");
+    revalidatePath("/");
   };
 
   return (

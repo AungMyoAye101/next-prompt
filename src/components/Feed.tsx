@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import PromptCard from "./PromptCard";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export interface AuthorProp {
   _id: string;
@@ -17,13 +18,14 @@ export interface PromptProps {
   author: AuthorProp;
 }
 const Feed = () => {
+  const router = useRouter();
   const { data: session } = useSession();
   const [posts, setPosts] = useState([]);
   const [searchPosts, setSearchPosts] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   const fetchPost = async () => {
-    const res = await fetch("/api/prompt", {});
+    const res = await fetch("/api/prompt", { next: { revalidate: 1000 } });
     const data = await res.json();
 
     setPosts(data);
