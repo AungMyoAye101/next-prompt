@@ -15,13 +15,13 @@ const PromptCreateForm = ({ type, createPrompt }: CreatePrompt) => {
       <form action={createPrompt} className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label htmlFor="prompt" className="font-semibold text-gray-500">
-            Text your ai powered prompt
+            Text your AI powered prompt
           </label>
           <textarea
             name="prompt"
             id="prompt"
             placeholder="Enter your awsome prompt.."
-            className="p-2 border border-gray-200 rounded shadow-md "
+            className="p-2 border border-gray-200 rounded shadow-md outline-none focus:border-green-400 "
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -32,19 +32,19 @@ const PromptCreateForm = ({ type, createPrompt }: CreatePrompt) => {
             type="text"
             name="tag"
             placeholder="Tags "
-            className="p-2 border border-gray-200 rounded shadow-md "
+            className="p-2 border border-gray-200 rounded shadow-md outline-none focus:outline-none focus:border-green-400 "
           />
         </div>
         <div className="flex justify-end gap-2">
           <Link
             href="/"
-            className="px-4 py-2 text-sm text-mono border border-gray-200 rounded-md font-semibold shadow-md"
+            className="px-4 py-2 text-sm text-mono border border-gray-200 rounded-md font-semibold shadow hover:rounded-full hover:bg-orange-400 "
           >
             Cancel
           </Link>
           <button
             type="submit"
-            className="px-4 py-2 text-sm text-mono bg-orange-400 border border-gray-200 rounded-md font-semibold shadow-md"
+            className="px-4 py-2 text-sm text-mono bg-orange-400 border border-gray-200 rounded-md font-semibold shadow hover:rounded-full hover:bg-lime-500"
           >
             {type}
           </button>

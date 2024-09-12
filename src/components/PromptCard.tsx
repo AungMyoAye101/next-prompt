@@ -36,7 +36,7 @@ const PromptCard: FC<PostsProp> = ({
     <>
       <section
         className={`grid sm:grid-cols-2  ${
-          !isProfile ? "md:grid-cols-3  lg:grid-cols-4 " : ""
+          !isProfile ? " lg:grid-cols-3 xl:grid-cols-4 " : ""
         }gap-4 `}
       >
         {post !== undefined &&
@@ -53,7 +53,7 @@ const PromptCard: FC<PostsProp> = ({
                       width={40}
                       height={40}
                       alt="user profile"
-                      className="rounded-full ring ring-sky-200"
+                      className="rounded-full ring ring-sky-200 hover:ring-purple-400"
                     />
                   </Link>
                   <div>
@@ -71,7 +71,7 @@ const PromptCard: FC<PostsProp> = ({
                   </p>
                   <button
                     onClick={() => handelTag(post.tag)}
-                    className=" font-serif text-sm font-semibold text-gray-800"
+                    className=" font-serif text-sm font-semibold text-gray-800 hover:text-blue-400"
                   >
                     {post.tag}
                   </button>
