@@ -23,7 +23,7 @@ const Feed = () => {
   const [searchText, setSearchText] = useState("");
 
   const fetchPost = async () => {
-    const res = await fetch("/api/prompt");
+    const res = await fetch("/api/prompt", {});
     const data = await res.json();
 
     setPosts(data);
@@ -70,16 +70,18 @@ const Feed = () => {
           className="w-full py-2 px-4 rounded shadow-lg border border-gray-400 focus:outline-none"
         />
       </form>
-
-      <h1 className="text-xl font-semibold font-serif">Populer Prompts </h1>
-
-      <PromptCard
-        userId={session?.user.id!}
-        post={searchPosts}
-        handelDelete={async () => {}}
-        handelTag={handelTag}
-        isProfile={false}
-      />
+      {session?.user.id && (
+        <>
+          <h1 className="text-xl font-semibold font-serif">Populer Prompts </h1>
+          <PromptCard
+            userId={session?.user.id!}
+            post={searchPosts}
+            handelDelete={async () => {}}
+            handelTag={handelTag}
+            isProfile={false}
+          />
+        </>
+      )}
     </section>
   );
 };

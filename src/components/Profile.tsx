@@ -96,7 +96,7 @@ const Profile: FC<ProfileProp> = ({
           )}
         </div>
       </div>
-      <div className="pb-12">
+      <div className="p-4">
         <PromptCard
           userId={id}
           post={posts}
