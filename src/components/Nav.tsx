@@ -16,7 +16,7 @@ const Nav = () => {
     };
   }, []);
   return (
-    <nav className="flex justify-between items-center py-2 px-4">
+    <nav className="flex justify-between items-center py-2 px-4 shadow">
       <Link href={"/"}>
         <h1 className="text-xl font-bold font-serif  bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-500 bg-clip-text text-transparent">
           {" "}
