@@ -8,6 +8,7 @@ import { BiLogOut } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import { IoMdHome } from "react-icons/io";
 import { GoSignIn } from "react-icons/go";
+import { IoLogoDribbble } from "react-icons/io";
 
 const Nav = () => {
   const { data: session } = useSession();
@@ -23,9 +24,11 @@ const Nav = () => {
   return (
     <nav className="flex justify-between items-center py-2 px-4 shadow mt-1">
       <Link href={"/"}>
-        <h1 className="text-xl font-bold font-serif  bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-500 bg-clip-text text-transparent">
-          {" "}
-          Promptopia
+        <h1 className="text-xl font-bold font-serif flex items-center gap-1">
+          <IoLogoDribbble className="text-2xl text-orange-500 shadow-sm " />
+          <span className=" bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-500 bg-clip-text text-transparent">
+            Promptopia
+          </span>
         </h1>
       </Link>
 

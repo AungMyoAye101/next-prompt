@@ -19,6 +19,7 @@ const UpdatePrompt = ({ params }) => {
           tag,
         }),
       });
+
       if (res.ok) {
         router.push("/");
       }
