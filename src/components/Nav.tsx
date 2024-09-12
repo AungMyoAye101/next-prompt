@@ -43,7 +43,7 @@ const Nav = () => {
               <span>Create New</span>
             </Link>
             <button
-              className=" flex items-center gap-1 px-4 py-1 rounded-md bg-red-500 hover:bg-gray-800  shadow-md  text-gray-900 hover:text-gray-200 "
+              className=" flex items-center gap-1 px-4 py-1 rounded-md text-red-700 border border-red-600 hover:bg-red-800  shadow-md hover:border-red-800 hover:text-gray-200"
               onClick={() => signOut()}
             >
               <BiLogOut /> <span>Sign out</span>
