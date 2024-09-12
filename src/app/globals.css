@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.link-p {
+  @apply w-full p-2 bg-gray-200 rounded hover:bg-orange-400 flex items-center gap-2 font-medium;
+}

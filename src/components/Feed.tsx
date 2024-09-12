@@ -71,7 +71,7 @@ const Feed = () => {
             placeholder="search a tag or username or prompt"
             value={searchText}
             onChange={handelChange}
-            className="flex-1 focus:outline-none bg-transparent focus:text-green-500"
+            className="flex-1 focus:outline-none bg-transparent"
           />
           <FaSearch className="text-gray-500" />
         </div>

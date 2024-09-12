@@ -5,6 +5,9 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { MdAddCard } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
+import { FaUser } from "react-icons/fa";
+import { IoMdHome } from "react-icons/io";
+import { GoSignIn } from "react-icons/go";
 
 const Nav = () => {
   const { data: session } = useSession();
@@ -89,39 +92,51 @@ const Nav = () => {
       {/* mobile menu */}
       {toggle && (
         <section className="absolute right-0 top-12 rounded shadow-lg p-4 w-[90vw] flex flex-col gap-2 z-20 bg-slate-100">
-          <p
-            className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
-            onClick={() => signIn("google")}
-          >
-            Sign in
+          <p className="link-p" onClick={() => signIn("google")}>
+            <span>
+              <GoSignIn />
+            </span>{" "}
+            <span>Signin</span>
           </p>
           <Link
             href={"/"}
-            className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
+            className="link-p"
             onClick={() => setToggle((pre) => !pre)}
           >
-            Home
+            <span>
+              <IoMdHome />
+            </span>
+            <span>Home</span>
           </Link>
           <Link
             href={`/profile/${session?.user.id}`}
-            className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
+            className="link-p"
             onClick={() => setToggle((pre) => !pre)}
           >
-            Profile
+            <span>
+              <FaUser />
+            </span>
+            <span>Profile</span>
           </Link>
           <Link
             href={"/create"}
-            className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
+            className="link-p"
             onClick={() => setToggle((pre) => !pre)}
           >
-            Create new
+            <span>
+              <MdAddCard />
+            </span>
+            <span>Create new</span>
           </Link>
 
           <p
-            className="w-full p-2 bg-gray-200 rounded hover:bg-orange-400"
+            className="link-p text-red-700 hover:text-gray-800"
             onClick={() => signOut()}
           >
-            Sign Out
+            <span>
+              <BiLogOut />
+            </span>
+            <span>Sign out</span>
           </p>
         </section>
       )}
