@@ -67,10 +67,10 @@ const Profile: FC<ProfileProp> = ({
 
         <div className="absolute right-4 flex flex-col gap-2 items-end md:hidden ">
           <button
-            className="px-2 py-1 rounded-full text-gray-700  text-orange-300 max-w-16"
+            className="px-2 py-1 rounded-full  text-orange-300 max-w-16"
             onClick={() => setShow((pre) => !pre)}
           >
-            ...
+            More
           </button>
           {show && (
             <div className="flex flex-col gap-2 bg-white p-3 rounded shadow ">
