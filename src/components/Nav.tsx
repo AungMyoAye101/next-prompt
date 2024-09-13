@@ -52,8 +52,8 @@ const Nav = () => {
               <Link href={`/profile/${session?.user.id}`}>
                 <Image
                   src={`${session.user.image}`}
-                  width={40}
-                  height={40}
+                  width={30}
+                  height={30}
                   alt="user profile"
                   className="rounded-full cursor-pointer"
                 />
