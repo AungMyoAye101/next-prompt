@@ -4,9 +4,25 @@ import PromptCreateForm from "@/components/PromptCreateForm";
 import { useSession } from "next-auth/react";
 import { revalidatePath } from "next/cache";
 import { redirect, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-const UpdatePrompt = ({ params }) => {
+const UpdatePrompt = async ({ params }) => {
+  const [post, setPost] = useState([]);
   const router = useRouter();
+
+  const fetchPost = async () => {
+    const res = await fetch(`/api/prompt/${params.postId}`, {
+      method: "GET",
+    });
+    const data = await res.json();
+    setPost(data);
+  };
+
+  useEffect(() => {
+    fetchPost();
+  }, []);
+  console.log(post, post.prompt);
+
   const updatePrompt = async (formData) => {
     const prompt = formData.get("prompt");
     const tag = formData.get("tag");
@@ -32,7 +48,12 @@ const UpdatePrompt = ({ params }) => {
 
   return (
     <div className="p-4">
-      <PromptCreateForm type="Edit" createPrompt={updatePrompt} />
+      <PromptCreateForm
+        type="Edit"
+        createPrompt={updatePrompt}
+        prePrompt={post.prompt}
+        preTag={post.tag}
+      />
     </div>
   );
 };

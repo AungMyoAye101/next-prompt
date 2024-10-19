@@ -1,10 +1,22 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 interface CreatePrompt {
   type: string;
   createPrompt: () => Promise<void>;
+  prePrompt?: string;
+  preTag?: string;
 }
-const PromptCreateForm = ({ type, createPrompt }: CreatePrompt) => {
+const PromptCreateForm = ({
+  type,
+  createPrompt,
+  prePrompt,
+  preTag,
+}: CreatePrompt) => {
+  const [prompt, setPrompt] = useState(prePrompt);
+  const [tag, setTag] = useState(preTag);
+
   return (
     <section className="flex flex-col gap-4 p-6 md:px-8 w-full max-w-3xl mt-4  mx-auto border border-gray-400 rounded-md shadow-md ">
       <div>
@@ -20,8 +32,10 @@ const PromptCreateForm = ({ type, createPrompt }: CreatePrompt) => {
           <textarea
             name="prompt"
             id="prompt"
+            value={prompt}
             placeholder="Enter your awsome prompt.."
             className="p-2 border border-gray-200 rounded shadow-md outline-none focus:border-green-400 "
+            onChange={(e) => setPrompt(e.target.value)}
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -31,8 +45,10 @@ const PromptCreateForm = ({ type, createPrompt }: CreatePrompt) => {
           <input
             type="text"
             name="tag"
+            value={tag}
             placeholder="Tags "
             className="p-2 border border-gray-200 rounded shadow-md outline-none focus:outline-none focus:border-green-400 "
+            onChange={(e) => setTag(e.target.value)}
           />
         </div>
         <div className="flex justify-end gap-2">

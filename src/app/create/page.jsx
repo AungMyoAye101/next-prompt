@@ -2,7 +2,6 @@
 
 import PromptCreateForm from "@/components/PromptCreateForm";
 import { useSession } from "next-auth/react";
-import { revalidatePath } from "next/cache";
 import { redirect, useRouter } from "next/navigation";
 
 const CreatePrompt = () => {
